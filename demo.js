@@ -15,43 +15,48 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   animEls.forEach((el) => observer.observe(el));
-  // Drawer projets
-  const drawer = document.getElementById('project-drawer');
-  const projetCards = document.querySelectorAll('.projet-card');
-  const drawerClose = document.querySelector('.drawer-close');
 
-  function openDrawer(projectId) {
-    const content = drawer?.querySelector('.drawer-content');
-    if (content) {
-      content.innerHTML = `
-        <h3>Projet ${projectId}</h3>
-        <p>Description détaillée du projet. Images, métriques, témoignages client — contenu chargé dynamiquement.</p>
-        <p style="margin-top:1rem;color:var(--gray-light)">View case study →</p>
-      `;
+  // Frame projets : slide au clic sur panneaux latéraux
+  let activeProjectIndex = 1;
+  const slides = document.querySelectorAll('.projet-slide');
+  const lateralLeft = document.querySelector('.lateral-left');
+  const lateralRight = document.querySelector('.lateral-right');
+  const topbar = document.querySelector('.projet-topbar');
+
+  function goToProject(index) {
+    if (index === activeProjectIndex) return;
+    const direction = index > activeProjectIndex ? 'right' : 'left';
+
+    slides.forEach((slide) => slide.classList.remove('active', 'slide-from-left'));
+
+    const targetSlide = document.querySelector(`.projet-slide[data-index="${index}"]`);
+    if (!targetSlide) return;
+
+    if (direction === 'left') {
+      targetSlide.classList.add('slide-from-left');
+      targetSlide.offsetHeight; // reflow
     }
-    drawer?.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    targetSlide.classList.add('active');
+    activeProjectIndex = index;
   }
+
+  lateralLeft?.addEventListener('click', () => goToProject(0));
+  lateralRight?.addEventListener('click', () => goToProject(2));
+  topbar?.addEventListener('click', () => goToProject(1));
+
+  // Drawer (conservé si réutilisé ailleurs)
+  const drawer = document.getElementById('project-drawer');
+  const drawerClose = document.querySelector('.drawer-close');
 
   function closeDrawer() {
     drawer?.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  projetCards.forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (!e.target.closest('a')) {
-        openDrawer(card.dataset.id || '1');
-      }
-    });
-  });
-
   drawerClose?.addEventListener('click', closeDrawer);
-
   drawer?.addEventListener('click', (e) => {
     if (e.target === drawer) closeDrawer();
   });
-
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeDrawer();
   });
