@@ -23,15 +23,75 @@
     </header>
 
     <main>
-        <!-- Dégradé animé en haut -->
-        <div class="gradient-banner">
-            <p class="gradient-tagline">Choisissez l'intelligence.</p>
-        </div>
-        <!-- 2. LOGO EN GRAND -->
-        <section id="hero" class="hero-logo">
-            <h1 class="logo-nukleo">
-                <span class="logo-n">n</span><span class="logo-ukle">ukleo</span><span class="logo-chevron">&gt;</span>
+        <!-- HAUT : header unifié (dégradé sombre + logo) -->
+        <header id="hero" class="page-header">
+            <div class="header-gradient"></div>
+            <p class="header-tagline">Choisissez l'intelligence.</p>
+            <button class="header-icon" aria-label="Menu">▤</button>
+            <h1 class="header-logo">
+                <span class="logo-n">n</span><span class="logo-ukle">ukleo</span><span class="logo-dot">.</span><span class="logo-chevron">&gt;</span>
             </h1>
+        </header>
+
+        <!-- Contenu principal (fond blanc) -->
+        <section class="main-content">
+            <div class="main-content-inner">
+                <!-- Widgets gauche -->
+                <div class="content-widgets">
+                    <div class="mini-widgets-row">
+                        <div class="mini-widget card-glass">
+                            <span class="mini-widget-icon">☀️</span>
+                            <span class="mini-widget-value">24</span>
+                            <span class="mini-widget-label">Projets actifs</span>
+                        </div>
+                        <div class="mini-widget card-glass">
+                            <span class="mini-widget-icon">☁️</span>
+                            <span class="mini-widget-value">23</span>
+                            <span class="mini-widget-label">En cours</span>
+                        </div>
+                    </div>
+                    <div class="hero-portfolio-widget card-glass">
+                        <div class="portfolio-widget-left">
+                            <div class="avatar-grid">
+                                <div class="avatar"></div><div class="avatar"></div><div class="avatar"></div>
+                                <div class="avatar"></div><div class="avatar"></div><div class="avatar highlight">↗</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-widget-right">
+                            <span class="portfolio-value">749$</span>
+                            <span class="portfolio-trend">+17.7%</span>
+                            <a href="#projets" class="portfolio-link">Voir plus</a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="hero-contact-widget card-glass">
+                        <span class="contact-icon">📞</span>
+                        <span class="contact-number">+430 567 890</span>
+                        <span class="contact-arrow">→</span>
+                    </a>
+                    <div class="hero-progress-widget card-glass">
+                        <div class="progress-line">
+                            <span class="progress-label">Options et autres</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+                        </div>
+                        <div class="progress-line">
+                            <span class="progress-label">Travailler ou apprendre</span>
+                            <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Laptop droite -->
+                <div class="content-visual">
+                    <div class="hero-laptop-frame">
+                        <div class="laptop-screen">
+                            <div class="screen-placeholder">
+                                <span>Gaming</span><span>Music</span><span>Art</span>
+                                <span>Books</span><span>Fashion</span><span>Sports</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-pedestal"></div>
+                </div>
+            </div>
         </section>
 
         <!-- 3. STATS -->

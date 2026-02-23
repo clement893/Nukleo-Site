@@ -129,69 +129,103 @@ body {
     box-shadow: 0 4px 20px rgba(124, 90, 184, 0.4);
 }
 
-/* DÉGRADÉ ANIMÉ EN HAUT */
-.gradient-banner {
+/* HAUT : Header unifié (dégradé sombre animé + logo centré) */
+.page-header {
     position: relative;
-    height: clamp(120px, 18vh, 180px);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+}
+
+.header-gradient {
+    position: absolute;
+    inset: 0;
     background: linear-gradient(
-        90deg,
-        #4a3a6b 0%,
-        #6b5a8c 25%,
-        #8b6a9c 50%,
-        #a878b0 75%,
-        #c090c8 100%
+        105deg,
+        #3d2a52 0%,
+        #4a3a6b 20%,
+        #3a2d55 40%,
+        #2a2545 60%,
+        #1e1a35 80%,
+        #151228 100%
     );
-    background-size: 200% 100%;
-    animation: gradientWave 10s ease-in-out infinite;
+    background-size: 400% 400%;
+    animation: gradientFloat 15s ease-in-out infinite;
 }
 
-@keyframes gradientWave {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+.header-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse 60% 80% at 20% 30%,
+        rgba(120, 80, 180, 0.4) 0%,
+        transparent 50%
+    );
+    animation: nebulaPulse 8s ease-in-out infinite;
 }
 
-.gradient-banner::before {
+.header-gradient::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
         110deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.1) 30%,
-        rgba(255, 255, 255, 0.15) 50%,
-        rgba(255, 255, 255, 0.08) 70%,
+        rgba(255, 255, 255, 0.06) 40%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.04) 60%,
         transparent 100%
     );
-    animation: shimmer 5s ease-in-out infinite;
+    animation: shimmer 6s ease-in-out infinite;
+}
+
+@keyframes gradientFloat {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes nebulaPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }
 
 @keyframes shimmer {
-    0%, 100% { opacity: 0.4; transform: translateX(-30%); }
-    50% { opacity: 1; transform: translateX(30%); }
+    0%, 100% { opacity: 0.3; transform: translateX(-20%); }
+    50% { opacity: 0.8; transform: translateX(20%); }
 }
 
-.gradient-tagline {
-    position: relative;
-    z-index: 2;
-    padding: 2rem 3rem;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.95);
+.header-tagline {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 3;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
     letter-spacing: 0.02em;
 }
 
-/* 2. LOGO EN GRAND (fond blanc) */
-.hero-logo {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
+.header-icon {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 3;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #7ba8d4;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
 }
 
-.logo-nukleo {
-    font-size: clamp(4rem, 15vw, 12rem);
+.header-logo {
+    position: relative;
+    z-index: 2;
+    font-size: clamp(3.5rem, 12vw, 10rem);
     font-weight: 600;
     font-family: 'Segoe UI', system-ui, sans-serif;
     letter-spacing: -0.02em;
@@ -204,28 +238,132 @@ body {
     position: relative;
 }
 
-/* Encoche pixel sur le n (ref. logo Nukleo) */
 .logo-n::before {
     content: '';
     position: absolute;
-    top: 0.08em;
-    left: 0.05em;
-    width: 0.12em;
-    height: 0.12em;
-    background: #ffffff;
+    top: 0.06em;
+    left: 0.04em;
+    width: 0.14em;
+    height: 0.14em;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 2px;
 }
 
 .logo-ukle {
-    background: linear-gradient(90deg, #6b2a2a 0%, #5d3a5a 25%, #4a3a6b 60%, #5c4a8c 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #5d2a3a;
+    -webkit-text-fill-color: #5d2a3a;
+}
+
+.logo-dot {
+    color: #a855f7;
 }
 
 .logo-chevron {
+    color: #a855f7;
+}
+
+/* Contenu principal (fond blanc, widgets + laptop) */
+.main-content {
+    background: #ffffff;
+    padding: 4rem 2rem;
+}
+
+.main-content-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .main-content-inner { grid-template-columns: 1fr; }
+    .content-visual { order: -1; }
+}
+
+.content-widgets {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.content-widgets .card-glass {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+}
+
+.content-widgets .mini-widget-value,
+.content-widgets .portfolio-value { color: #1a1a1a; }
+
+.content-widgets .mini-widget-label,
+.content-widgets .portfolio-trend,
+.content-widgets .portfolio-link,
+.content-widgets .progress-label { color: #666; }
+
+.content-widgets .hero-contact-widget {
+    background: linear-gradient(135deg, #7c5ab8, #6b4ea2) !important;
+    color: white;
+}
+
+.content-widgets .avatar {
+    background: linear-gradient(135deg, #9b7dd4, #7b9fd4);
+}
+
+.content-widgets .avatar.highlight {
+    background: rgba(124, 90, 184, 0.3);
     color: #5c4a8c;
-    -webkit-text-fill-color: initial;
+}
+
+.content-widgets .progress-fill {
+    background: linear-gradient(90deg, #7c5ab8, #6b4ea2);
+}
+
+.content-widgets .progress-bar {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.content-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-visual .hero-laptop-frame {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.content-visual .laptop-screen {
+    background: #f5f5f5;
+}
+
+.content-visual .screen-placeholder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.content-visual .screen-placeholder span {
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.content-visual .screen-placeholder span:nth-child(1) { background: #fbbf24; }
+.content-visual .screen-placeholder span:nth-child(2) { background: #a78bfa; }
+.content-visual .screen-placeholder span:nth-child(3) { background: #34d399; }
+.content-visual .screen-placeholder span:nth-child(4) { background: #60a5fa; }
+.content-visual .screen-placeholder span:nth-child(5) { background: #f472b6; }
+.content-visual .screen-placeholder span:nth-child(6) { background: #fb923c; }
+
+.content-visual .hero-pedestal {
+    background: rgba(0, 0, 0, 0.06);
 }
 
 /* 2b. HÉRO MODULAIRE (conservé pour référence) */
