@@ -16,7 +16,9 @@ Direction design basée sur la référence fournie :
 - **Gris foncé / noir** — Fond secondaire, cartes
 - **Blanc / gris clair** — Texte, contrastes
 
-**Ton :** Moderne, épuré, type dashboard avec touches de profondeur (dégradés, surfaces réfléchissantes).
+**Ton :** Moderne, épuré, **look modulaire type dashboard** — widgets en cartes distinctes, glassmorphism, dégradés soft (violet-bleu), laptop/visuel à droite.
+
+**Layout Héro modulaire :** Panneau gauche = pile de widgets (mini-cartes 24/23, portfolio 749k$, contact, barres de progression). Panneau droit = laptop sur socle. Cartes translucides, coins arrondis.
 
 ---
 
