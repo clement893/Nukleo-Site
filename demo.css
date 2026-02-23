@@ -129,6 +129,58 @@ body {
     box-shadow: 0 4px 20px rgba(124, 90, 184, 0.4);
 }
 
+/* DÉGRADÉ ANIMÉ EN HAUT */
+.gradient-banner {
+    position: relative;
+    height: clamp(120px, 18vh, 180px);
+    overflow: hidden;
+    background: linear-gradient(
+        90deg,
+        #4a3a6b 0%,
+        #6b5a8c 25%,
+        #8b6a9c 50%,
+        #a878b0 75%,
+        #c090c8 100%
+    );
+    background-size: 200% 100%;
+    animation: gradientWave 10s ease-in-out infinite;
+}
+
+@keyframes gradientWave {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.gradient-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 30%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.08) 70%,
+        transparent 100%
+    );
+    animation: shimmer 5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.4; transform: translateX(-30%); }
+    50% { opacity: 1; transform: translateX(30%); }
+}
+
+.gradient-tagline {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 3rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.02em;
+}
+
 /* 2. LOGO EN GRAND (fond blanc) */
 .hero-logo {
     min-height: 100vh;
