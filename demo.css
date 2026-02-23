@@ -22,8 +22,8 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Segoe UI', system-ui, sans-serif;
-    background: var(--dark);
-    color: var(--white);
+    background: #ffffff;
+    color: var(--dark);
     line-height: 1.6;
 }
 
@@ -129,7 +129,54 @@ body {
     box-shadow: 0 4px 20px rgba(124, 90, 184, 0.4);
 }
 
-/* 2. HÉRO MODULAIRE (dashboard + glassmorphism) */
+/* 2. LOGO EN GRAND (fond blanc) */
+.hero-logo {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.logo-nukleo {
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 600;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.logo-n {
+    color: #6b2a2a;
+    display: inline-block;
+    position: relative;
+}
+
+/* Encoche pixel sur le n (ref. logo Nukleo) */
+.logo-n::before {
+    content: '';
+    position: absolute;
+    top: 0.08em;
+    left: 0.05em;
+    width: 0.12em;
+    height: 0.12em;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.logo-ukle {
+    background: linear-gradient(90deg, #6b2a2a 0%, #5d3a5a 25%, #4a3a6b 60%, #5c4a8c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-chevron {
+    color: #5c4a8c;
+    -webkit-text-fill-color: initial;
+}
+
+/* 2b. HÉRO MODULAIRE (conservé pour référence) */
 .hero-modular {
     min-height: 100vh;
     padding: 6rem 2rem 4rem;

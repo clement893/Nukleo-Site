@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="demo.css">
 </head>
 <body>
-    <!-- 1. NAVIGATION -->
-    <header class="widget-nav">
+    <!-- 1. NAVIGATION (masqué pour l'instant) -->
+    <header class="widget-nav" style="display: none;">
         <nav class="nav-inner">
             <a href="#" class="nav-logo">nukleo</a>
             <ul class="nav-links">
@@ -23,72 +23,11 @@
     </header>
 
     <main>
-        <!-- 2. HÉRO MODULAIRE (dashboard) -->
-        <section id="hero" class="hero-modular">
-            <div class="hero-modular-inner">
-                <!-- Panneau gauche : pile de widgets -->
-                <div class="hero-widgets-stack">
-                    <div class="hero-brand">
-                        <p class="hero-tagline">Choisissez l'intelligence.</p>
-                        <h1 class="hero-title">
-                            <span class="hero-nukle">nukle</span><span class="hero-o">o</span>
-                            <button class="hero-carousel-btn" aria-label="Carousel">→</button>
-                        </h1>
-                    </div>
-                    <div class="mini-widgets-row">
-                        <div class="mini-widget card-glass">
-                            <span class="mini-widget-icon">☀️</span>
-                            <span class="mini-widget-value">24</span>
-                            <span class="mini-widget-label">Projets actifs</span>
-                        </div>
-                        <div class="mini-widget card-glass">
-                            <span class="mini-widget-icon">☁️</span>
-                            <span class="mini-widget-value">23</span>
-                            <span class="mini-widget-label">En cours</span>
-                        </div>
-                    </div>
-                    <div class="hero-portfolio-widget card-glass">
-                        <div class="portfolio-widget-left">
-                            <div class="avatar-grid">
-                                <div class="avatar"></div><div class="avatar"></div><div class="avatar"></div>
-                                <div class="avatar"></div><div class="avatar"></div><div class="avatar highlight">↗</div>
-                            </div>
-                        </div>
-                        <div class="portfolio-widget-right">
-                            <span class="portfolio-value">749k$</span>
-                            <span class="portfolio-trend">+17.7%</span>
-                            <a href="#projets" class="portfolio-link">Voir plus</a>
-                        </div>
-                    </div>
-                    <a href="#contact" class="hero-contact-widget card-glass">
-                        <span class="contact-icon">📞</span>
-                        <span class="contact-number">+1 650 543 687</span>
-                        <span class="contact-arrow">→</span>
-                    </a>
-                    <div class="hero-progress-widget card-glass">
-                        <div class="progress-line">
-                            <span class="progress-label">Travaux en cours</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
-                        </div>
-                        <div class="progress-line">
-                            <span class="progress-label">Livrés ce mois</span>
-                            <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Panneau droit : visuel principal -->
-                <div class="hero-visual">
-                    <div class="hero-laptop-frame">
-                        <div class="laptop-screen">
-                            <div class="screen-placeholder">
-                                <p>Votre interface</p>
-                                <span>Dashboard · Projets · Clients</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hero-pedestal"></div>
-                </div>
-            </div>
+        <!-- 2. LOGO EN GRAND -->
+        <section id="hero" class="hero-logo">
+            <h1 class="logo-nukleo">
+                <span class="logo-n">n</span><span class="logo-ukle">ukleo</span><span class="logo-chevron">&gt;</span>
+            </h1>
         </section>
 
         <!-- 3. STATS -->
