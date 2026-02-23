@@ -1,0 +1,11 @@
+{
+  "name": "nukleo-site",
+  "version": "1.0.0",
+  "description": "Site web officiel de Nukleo",
+  "scripts": {
+    "start": "serve -s ."
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
